@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>测试RESTFul编程风格</h1>
+<a th:href="@{/user}">查询所有用户</a><br>
+<a th:href="@{/user/1}">查询id为1的用户</a><br>
+<!--保存用户-->
+<form th:action="@{/user}" method="post">
+    <input type="submit" th:value="保存">
+</form><br>
+<!--修改用户-->
+<form th:action="@{/user}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="submit" th:value="修改">
+</form>
+</body>
+</html>

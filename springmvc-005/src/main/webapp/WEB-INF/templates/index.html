@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试三个域</title>
+</head>
+<body>
+<h1>测试三个域</h1>
+<h1>测试request</h1>
+<a th:href="@{/testModel}">在SpringMVC中使用Model接口实现request域数据共享</a><br>
+<a th:href="@{/testMap}">在SpringMVC中使用Map接口实现request域数据共享</a><br>
+<a th:href="@{/testModelMap}">在SpringMVC中使用ModelMap类实现request域数据共享</a><br>
+<a th:href="@{/testModelAndView}">在SpringMVC中使用ModelAndView类实现request域数据共享</a>
+<h1>测试session</h1>
+<a th:href="@{/testSessionAttributes}">在SpringMVC中使用@SessionAttributes注解实现session域数据共享</a>
+<h1>测试application</h1>
+<a th:href="@{/testApplication}">在SpringMVC中实现application域数据共享</a>
+
+</body>
+</html>

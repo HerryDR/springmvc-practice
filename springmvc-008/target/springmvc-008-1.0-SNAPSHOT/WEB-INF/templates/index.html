@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script th:src="@{/static/js/vue3.4.21.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+</head>
+<body>
+<h1>首页</h1>
+<hr>
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <button @click="saveJSON">通过POST请求发送JSON给服务器</button>
+</div>
+
+<script th:inline="javascript">
+    /*Vue.createApp({
+        data(){
+            return {
+                message : "这里的信息将被刷新"
+            }
+        },
+        methods:{
+            async getMessage(){
+                try {
+                    const response = await axios.get([[@{/}]] + 'hello')
+                        this.message = response.data
+                }catch (e) {
+                        console.error(e)
+                    }
+                }
+            }
+        }).mount("#app")*/
+    let jsonObj={"name":"zs","password":"123"}
+    Vue.createApp({
+        data(){
+            return {
+                message : ""
+            }
+        },
+        methods:{
+            async saveJSON(){
+                try{
+                    const res = await axios.get('/springmvc/save', JSON.stringify(jsonObj), {
+                        headers : {
+                            "Content-Type" : "application/json"
+                        }
+                    })
+                        this.message = response.data
+                }catch (e) {
+                        console.error(e)
+                    }
+                }
+            }
+        }).mount("#app")
+</script>
+
+</body>
+</html>
